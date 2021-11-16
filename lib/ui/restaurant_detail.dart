@@ -114,9 +114,15 @@ class _RestaurantDetailPageState extends State<RestaurantDetailPage> {
                         size: 14,
                       ),
                       SizedBox(width: 6),
-                      Text(
-                        '${restaurant.address}, ${restaurant.city}',
-                        style: descriptionTextStyle,
+                      Card(
+                        elevation: 3,
+                        child: Padding(
+                          padding: EdgeInsets.all(3),
+                          child: Text(
+                            '${restaurant.address}, ${restaurant.city}',
+                            style: descriptionTextStyle,
+                          ),
+                        ),
                       ),
                       SizedBox(width: 10),
                     ],
@@ -256,6 +262,7 @@ class _RestaurantDetailPageState extends State<RestaurantDetailPage> {
       ));
       text.add(
         Card(
+          elevation: 2,
           child: Padding(
             padding: EdgeInsets.all(3),
             child: Text('${category.name}',

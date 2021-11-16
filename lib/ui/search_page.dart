@@ -13,7 +13,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  final titleTextStyle = TextStyle(
+  final titleTextStyle = const TextStyle(
       fontSize: 40,
       fontWeight: FontWeight.bold,
       fontFamily: 'LibreBaskerville');
@@ -36,17 +36,17 @@ class _SearchPageState extends State<SearchPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 15, top: 25),
+                          padding: const EdgeInsets.only(left: 15, top: 25),
                           child: Text(
                             'Search',
                             style: titleTextStyle,
                           ),
                         ),
-                        Padding(
+                        const Padding(
                           padding:
                               EdgeInsets.only(left: 18, top: 10, bottom: 20),
                           child: Text(
-                            'what restaurant are you looking for ?',
+                            'what restaurant are you looking for?',
                             style: TextStyle(fontSize: 18),
                           ),
                         ),
@@ -62,7 +62,7 @@ class _SearchPageState extends State<SearchPage> {
                             width: MediaQuery.of(context).size.width - 40,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(50),
                                   bottomLeft: Radius.circular(50),
                                   topRight: Radius.circular(50),
@@ -72,7 +72,7 @@ class _SearchPageState extends State<SearchPage> {
                                   color: Colors.grey.withOpacity(0.5),
                                   spreadRadius: 3,
                                   blurRadius: 7,
-                                  offset: Offset(
+                                  offset: const Offset(
                                       2, 0), // changes position of shadow
                                 ),
                               ],
@@ -82,8 +82,8 @@ class _SearchPageState extends State<SearchPage> {
                                   const EdgeInsets.only(left: 10, bottom: 0),
                               child: TextField(
                                 cursorColor: Colors.black,
-                                style: TextStyle(color: Colors.black),
-                                decoration: InputDecoration(
+                                style: const TextStyle(color: Colors.black),
+                                decoration: const InputDecoration(
                                   border: InputBorder.none,
                                   prefixIcon:
                                       Icon(Icons.search, color: Colors.black),
@@ -92,7 +92,7 @@ class _SearchPageState extends State<SearchPage> {
                                   setState(() {
                                     dataSearch = value;
                                     state.searchRestaurants(value);
-                                    ViewList(state);
+                                    ListBuilder(state);
                                   });
                                 },
                               ),
@@ -101,7 +101,7 @@ class _SearchPageState extends State<SearchPage> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     if (dataSearch.isEmpty)
                       Center(
                           child: Column(
@@ -118,7 +118,7 @@ class _SearchPageState extends State<SearchPage> {
                         ],
                       ))
                     else
-                      ViewList(state)
+                      ListBuilder(state)
                   ],
                 ),
               ),
@@ -130,9 +130,9 @@ class _SearchPageState extends State<SearchPage> {
   }
 }
 
-Widget ViewList(SearchProvider state) {
+Widget ListBuilder(SearchProvider state) {
   if (state.state == ResultState.Loading) {
-    return Center(child: CircularProgressIndicator());
+    return const Center(child: CircularProgressIndicator());
   } else if (state.state == ResultState.HasData) {
     return ListView.builder(
       shrinkWrap: true,
@@ -145,7 +145,7 @@ Widget ViewList(SearchProvider state) {
   } else if (state.state == ResultState.NoData) {
     return Center(
         child: Column(
-      children: [
+      children: const [
         SizedBox(height: 60),
         Icon(Icons.search_off_outlined, color: Colors.grey, size: 200),
         Text(
@@ -159,15 +159,15 @@ Widget ViewList(SearchProvider state) {
     ));
   } else if (state.state == ResultState.Error) {
     return Column(children: [
-      SizedBox(height: 60),
-      Icon(
+      const SizedBox(height: 60),
+      const Icon(
         Icons.signal_cellular_nodata_rounded,
         size: 200,
         color: Colors.grey,
       ),
       Center(
         child: Text(state.message,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 17,
               color: Colors.grey,
             )),

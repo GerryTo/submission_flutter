@@ -29,7 +29,7 @@ class FavoritePage extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(left: 18, top: 10, bottom: 20),
                   child: Text(
-                    'This is your favorite restourant',
+                    'This is your favorite restourant.',
                     style: TextStyle(fontSize: 18),
                   ),
                 ),

@@ -68,10 +68,10 @@ class RestaurantList extends StatelessWidget {
                     style: titleTextStyle,
                   ),
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(left: 18, top: 10, bottom: 20),
                   child: Text(
-                    'Recommendation restaurant for you !',
+                    'Recommendation restaurant for you!',
                     style: TextStyle(fontSize: 18),
                   ),
                 ),
