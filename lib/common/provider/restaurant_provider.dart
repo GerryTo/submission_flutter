@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:submission_1/model/restaurant.dart';
-import '../api/api_service.dart';
+import 'package:submission_1/common/provider/result_state.dart';
+import 'package:submission_1/common/services/api_service.dart';
+import 'package:http/http.dart' as http;
+import 'package:submission_1/resources/model/restaurant.dart';
 
-enum ResultState { Loading, NoData, HasData, Error }
 
 class RestaurantProvider extends ChangeNotifier {
   final ApiService apiService;
@@ -21,11 +22,13 @@ class RestaurantProvider extends ChangeNotifier {
 
   ResultState get state => _state;
 
+  http.Client client = http.Client();
+
   Future<dynamic> _fetchAllRestaurant() async {
     try {
       _state = ResultState.Loading;
       notifyListeners();
-      final restaurant = await apiService.restaurantList();
+      final restaurant = await apiService.restaurantList(client);
       if (restaurant.restaurants.isEmpty) {
         _state = ResultState.NoData;
         notifyListeners();

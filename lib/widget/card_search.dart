@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:submission_1/model/search_restaurant.dart';
+import 'package:submission_1/resources/model/search_restaurant.dart';
 import 'package:submission_1/ui/restaurant_detail.dart';
 
 class CardSearch extends StatelessWidget {
   final SearchRestaurant restaurant;
-  final subtitleTextStyle = const TextStyle(fontSize: 14, fontFamily: 'Quicksand');
+  final subtitleTextStyle =
+      const TextStyle(fontSize: 14, fontFamily: 'Quicksand');
 
   CardSearch({required this.restaurant});
 

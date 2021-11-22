@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
-import 'package:submission_1/api/api_service.dart';
-import 'package:submission_1/model/restaurant_detail.dart';
-import 'package:submission_1/provider/detail_provider.dart';
+import 'package:submission_1/common/provider/detail_provider.dart';
+import 'package:submission_1/common/provider/result_state.dart';
+import 'package:submission_1/common/services/api_service.dart';
+import 'package:submission_1/resources/model/restaurant_detail.dart';
 
 class RestaurantDetailPage extends StatefulWidget {
   static const routeName = '/restaurant_detail';
@@ -19,7 +20,8 @@ class _RestaurantDetailPageState extends State<RestaurantDetailPage> {
   var titleTextStyle = const TextStyle(
       fontSize: 24, fontWeight: FontWeight.bold, fontFamily: 'Quicksand');
 
-  var descriptionTextStyle = const TextStyle(fontSize: 14, fontFamily: 'Quicksand');
+  var descriptionTextStyle =
+      const TextStyle(fontSize: 14, fontFamily: 'Quicksand');
 
   Widget _buildDetail() {
     return Scaffold(

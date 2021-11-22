@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:submission_1/platform/platform_widget.dart';
+import 'package:submission_1/common/provider/restaurant_provider.dart';
+import 'package:submission_1/common/provider/result_state.dart';
+import 'package:submission_1/ui/platform/platform_widget.dart';
 
-import '../provider/restaurant_provider.dart';
 import '../widget/card_restaurant.dart';
 
 class RestaurantList extends StatelessWidget {
@@ -11,6 +12,7 @@ class RestaurantList extends StatelessWidget {
       fontSize: 40,
       fontWeight: FontWeight.bold,
       fontFamily: 'LibreBaskerville');
+
   Widget _buildList() {
     return Consumer<RestaurantProvider>(
       builder: (context, state, _) {

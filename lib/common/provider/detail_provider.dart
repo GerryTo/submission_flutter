@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:submission_1/model/restaurant_detail.dart';
-
-import '../api/api_service.dart';
-
-enum ResultState { Loading, NoData, HasData, Error }
+import 'package:submission_1/common/provider/result_state.dart';
+import 'package:submission_1/common/services/api_service.dart';
+import 'package:submission_1/resources/model/restaurant_detail.dart';
 
 class DetailProvider extends ChangeNotifier {
   final ApiService apiService;
